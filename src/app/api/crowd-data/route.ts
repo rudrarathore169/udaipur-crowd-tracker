@@ -1,3 +1,5 @@
+
+
 import { NextResponse } from 'next/server';
 
 const places = [
@@ -5,6 +7,12 @@ const places = [
   { name: 'Saheliyon Ki Bari', place_id: 'ChIJd9K3fdflZzkRQeScJCCgYZ0' },
   { name: 'Jagdish Temple', place_id: 'ChIJ44SA0mXlZzkROFPFp4ABD_A' },
 ];
+
+// Define a specific type for the data inside the popular_times array
+type TimeData = {
+  time_of_day: number;
+  occupancy_percent: number;
+};
 
 export async function GET() {
   const apiKey = process.env.Maps_API_KEY;
@@ -28,8 +36,9 @@ export async function GET() {
           };
         }
         
+        // CORRECTED: We now use our specific TimeData type instead of 'any'
         const liveCrowdData = data.result.current_opening_hours?.popular_times?.find(
-          (time: any) => time.time_of_day === new Date().getHours()
+          (time: TimeData) => time.time_of_day === new Date().getHours()
         );
         
         return {
