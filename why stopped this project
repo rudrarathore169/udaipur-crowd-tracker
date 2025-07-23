@@ -1,0 +1,15 @@
+ Project Debrief: Udaipur Crowd Planner
+Initial Goal
+The original objective was to build a live, real-time crowd tracking web application for tourist locations in Udaipur. The goal was to provide immediate value to tourists by helping them find less crowded spots at any given moment.
+
+The Inconsistency & Technical Pivot
+The project's success was entirely dependent on receiving the live popular_times data from the Google Places API.
+
+During development, we discovered a critical inconsistency: the live crowd data was consistently unavailable through the API for all tested locations, including major national and international landmarks. This revealed that the core data source was unreliable and beyond our control.
+
+Faced with this external dependency issue, the project pivoted to a more feasible concept: a "Best Time to Visit" Planner, designed to show historical crowd data instead of live data.
+
+Reason for Stopping
+The project is being halted as a business venture for a single, clear reason: the unavailability of a reliable data source.
+
+Even after pivoting, further testing revealed that the historical popular_times data was also not being provided by the API to the project's Google Cloud account. Without a consistent feed of either live or historical data, the application's core value proposition cannot be fulfilled.
